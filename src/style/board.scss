@@ -1,0 +1,12 @@
+.board {
+    display: grid;
+    grid-template: repeat(4, auto)/repeat(4, auto);
+    height: 100vmin;
+    width: 100vmin;
+    border: 1px solid white;
+    .cell {
+        border: 1px solid white;
+        display: grid;
+        place-content: center;
+    }
+}
