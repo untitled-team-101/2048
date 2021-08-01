@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.frontPageContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.frontPage {
+  height: 80vh;
+  width: 100vw;
+  background: #1f222d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.frontPageTitle {
+  font-weight: bold;
+  font-size: 15vh;
+  font-family: "Source Code Pro", monospace;
+  color: #81a1c1;
+}
+
+.playBtn {
+  font-weight: bold;
+  font-size: 2vh;
+  font-family: "Source Code Pro", monospace;
+  background: #2e3440;
+  color: #81a1c1;
+  padding: 2vh;
+  border-radius: 2vh;
+}
+
+.playBtn:hover {
+  font-weight: bold;
+  font-size: 2.2vh;
+  font-family: "Source Code Pro", monospace;
+  background: #2e3440;
+  color: #81a1c1;
+  padding: 2vh;
+  border-radius: 1.8vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+.frontPageFooter {
+  font-size: 3vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #81a1c1;
+  height: 4vmin;
+  font-family: "Source Code Pro", monospace;
+  font-weight: bolder;
+  border-radius: 2vh;
+}
