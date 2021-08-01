@@ -1,27 +1,52 @@
 .board-outer {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    perspective: none;
-    animation: board 1s ease forwards;
-    .board {
-        display: grid;
-        place-content: center;
-        //font-size: calc(4vmin + 5vmax);
-        grid-template: repeat(4, 25%)/repeat(4, 25%);
-        height: 60vmin;
-        width: 60vmin;
-        border: 1px solid white;
-        transform-style: preserve-3d;
-        transition: 1s ease;
-        transform: rotateX(00deg) rotateY(-10deg);
-        box-shadow: 0 0 10vmin #000;
-        .cell {
-            border: 1px solid white;
-            display: grid;
-            place-content: center;
-        }
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: none;
+  animation: board 1s ease forwards;
+
+  .board {
+    display: grid;
+    place-content: center;
+    //font-size: calc(4vmin + 5vmax);
+    grid-template: repeat(4, 25%)/repeat(4, 25%);
+    height: 60vmin;
+    width: 60vmin;
+    border: 1px solid white;
+    transform-style: preserve-3d;
+    transition: 1s ease;
+    transform: rotateX(00deg) rotateY(-10deg);
+    box-shadow: 0 0 10vmin #000;
+
+    .cell {
+      border: 1px solid white;
+      display: grid;
+      place-content: center;
     }
+  }
+
+  .sideBar {
+    background-color:  lightblue;
+    color: black;
+    .scoreBoard {
+      display: flex;
+      justify-content: space-evenly;
+      width: 20vw;
+      height: 20vh;
+
+      #score , #highScore{
+      }
+
+
+    }
+    .resetBtn{
+      background-color: #333;
+      width: 10vw;
+      color: white;
+      height: 10vh;
+      border-radius: 1.3vmin;
+    }
+  }
 }

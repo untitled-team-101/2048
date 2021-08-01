@@ -20,6 +20,9 @@ let currentGrid = null;
 let setScoreFunc = null;
 let currentScore = null;
 
+let currentHighScore = null;
+let setHighScoreFunc = null;
+
 // move animation and merge animation
 const animateTiles = (prevGrid, currentGrid) => {
     // call animation
@@ -51,6 +54,8 @@ document.body.addEventListener("keydown", (event) => {
             animateTileAddition(currentGrid, gridCopy)
             setGridFunc(gridCopy)
             setScoreFunc(scoreCopy);
+            if (scoreCopy > currentHighScore)
+                setHighScoreFunc(scoreCopy)
             break;
         case "ArrowDown":
             scoreCopy = shiftDown(gridCopy, currentScore)
@@ -61,6 +66,8 @@ document.body.addEventListener("keydown", (event) => {
             animateTileAddition(currentGrid, gridCopy)
             setGridFunc(gridCopy)
             setScoreFunc(scoreCopy);
+            if (scoreCopy > currentHighScore)
+                setHighScoreFunc(scoreCopy)
 
             break;
         case "ArrowLeft":
@@ -72,7 +79,8 @@ document.body.addEventListener("keydown", (event) => {
             animateTileAddition(currentGrid, gridCopy)
             setGridFunc(gridCopy)
             setScoreFunc(scoreCopy);
-
+            if (scoreCopy > currentHighScore)
+                setHighScoreFunc(scoreCopy)
             break;
         case "ArrowRight":
             scoreCopy = shiftRight(gridCopy, currentScore)
@@ -83,6 +91,8 @@ document.body.addEventListener("keydown", (event) => {
             animateTileAddition(currentGrid, gridCopy)
             setGridFunc(gridCopy)
             setScoreFunc(scoreCopy);
+            if (scoreCopy > currentHighScore)
+                setHighScoreFunc(scoreCopy)
 
             break;
     }
@@ -91,14 +101,16 @@ document.body.addEventListener("keydown", (event) => {
 function Board() {
     const [grid, setGrid] = useStorage("grid", initialGrid)
     const [score, setScore] = useStorage("score", 0);
-    // const [highScore, setHighScore] = useStorage("highScore", 0);
+    let [highScore, setHighScore] = useStorage("highScore", 0);
 
     setScoreFunc = setScore;
     currentScore = score;
 
+    setHighScoreFunc = setHighScore;
+    currentHighScore = highScore;
+
     setGridFunc = setGrid
     currentGrid = grid;
-
 
     return (
         <div className={'board-outer'}>
@@ -115,16 +127,30 @@ function Board() {
                     })
                 }
             </div>
-            <div>
-                <div>
-                    <div>{score}</div>
-                    <div>{highScore}</div>
-                    <button onClick={() => {
-                        setGrid(initialGrid);
-                        setScore(0);
-                    }}>Reset
-                    </button>
+            <div className={'sideBar'}>
+                <div className={'scoreBoard'}>
+                    <div id={'score'}>
+                        <div>
+                            Score
+                        </div>
+                        <div>
+                            {score}
+                        </div>
+                    </div>
+                    <div id={'highScore'}>
+                        <div>
+                            HighScore
+                        </div>
+                        <div>
+                            {highScore}
+                        </div>
+                    </div>
                 </div>
+                <button onClick={() => {
+                    setGrid(initialGrid);
+                    setScore(0);
+                }} className={'resetBtn'}>Reset
+                </button>
             </div>
         </div>
     );
