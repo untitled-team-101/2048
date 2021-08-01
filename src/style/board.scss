@@ -6,6 +6,9 @@
   align-items: center;
   perspective: none;
   animation: board 1s ease forwards;
+  position: absolute;
+  top: 0;
+  left: 0;
   
   .board {
     display: grid;
@@ -13,6 +16,7 @@
     //font-size: calc(4vmin + 5vmax);
     height: 60vmin;
     width: 60vmin;
+    background: #282a36;
     border: 1px solid white;
     transform-style: preserve-3d;
     transition: 1s ease;
@@ -21,6 +25,7 @@
     
     button {
       cursor: pointer;
+      display: none;
     }
     
     .cell {
@@ -33,7 +38,8 @@
   .sideBar {
     background-color: lightblue;
     color: black;
-    
+      display: none;
+
     .scoreBoard {
       display: flex;
       justify-content: space-evenly;

@@ -131,42 +131,42 @@ function Board() {
 
   return (
     <div className={'board-outer'}>
-      <button onClick={(e) => {
-        setGridSize(3);
-        setGridFunc(createGrid(3))
-        setScore(0);
-      }}>3
-      </button>
-      <button onClick={(e) => {
-        setGridSize(4);
-        setGridFunc(createGrid(4))
-        setScore(0);
-      }}>4
-      </button>
-      <button onClick={(e) => {
-        setGridSize(5);
-        setGridFunc(createGrid(5))
-        setScore(0);
-      }}>5
-      </button>
-      <button onClick={(e) => {
-        setGridSize(6);
-        setGridFunc(createGrid(6))
-        setScore(0);
-      }}>6
-      </button>
-      <button onClick={(e) => {
-        setGridSize(7);
-        setGridFunc(createGrid(7))
-        setScore(0);
-      }}>7
-      </button>
-      <button onClick={(e) => {
-        setGridSize(8);
-        setGridFunc(createGrid(8))
-        setScore(0);
-      }}>8
-      </button>
+      {/*<button onClick={(e) => {*/}
+      {/*  setGridSize(3);*/}
+      {/*  setGridFunc(createGrid(3))*/}
+      {/*  setScore(0);*/}
+      {/*}}>3*/}
+      {/*</button>*/}
+      {/*<button onClick={(e) => {*/}
+      {/*  setGridSize(4);*/}
+      {/*  setGridFunc(createGrid(4))*/}
+      {/*  setScore(0);*/}
+      {/*}}>4*/}
+      {/*</button>*/}
+      {/*<button onClick={(e) => {*/}
+      {/*  setGridSize(5);*/}
+      {/*  setGridFunc(createGrid(5))*/}
+      {/*  setScore(0);*/}
+      {/*}}>5*/}
+      {/*</button>*/}
+      {/*<button onClick={(e) => {*/}
+      {/*  setGridSize(6);*/}
+      {/*  setGridFunc(createGrid(6))*/}
+      {/*  setScore(0);*/}
+      {/*}}>6*/}
+      {/*</button>*/}
+      {/*<button onClick={(e) => {*/}
+      {/*  setGridSize(7);*/}
+      {/*  setGridFunc(createGrid(7))*/}
+      {/*  setScore(0);*/}
+      {/*}}>7*/}
+      {/*</button>*/}
+      {/*<button onClick={(e) => {*/}
+      {/*  setGridSize(8);*/}
+      {/*  setGridFunc(createGrid(8))*/}
+      {/*  setScore(0);*/}
+      {/*}}>8*/}
+      {/*</button>*/}
 
       <div className={"board"}
            style={{gridTemplate: `repeat(${gridSize}, ${100 / gridSize}%)/repeat(${gridSize}, ${100 / gridSize}%)`}}>
