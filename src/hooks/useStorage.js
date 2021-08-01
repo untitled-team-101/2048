@@ -6,7 +6,7 @@ const getValue = (key, initialValue) => {
 }
 
 const useStorage = (key, initialValue) => {
-  const [value, saveValue] = useState(()=>{
+  const [value, saveValue] = useState(() => {
     return getValue(key, initialValue)
   })
   useEffect(() => {
