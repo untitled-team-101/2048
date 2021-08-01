@@ -6,6 +6,7 @@ import {shiftDown, shiftLeft, shiftRight, shiftUp} from "../methods/tileMerging"
 import addTile from "../methods/addTile"
 import copyArray from "../methods/copyArray";
 import isSameArray from "../methods/isSameArray";
+import isGameOver from '../methods/gameOver';
 
 const initialGrid = [
   [2, 2, 2, 2],
@@ -40,6 +41,10 @@ document.body.addEventListener("keydown", (event) => {
   switch (event.key) {
     case "ArrowUp":
       shiftUp(gridCopy)
+      if (isGameOver(gridCopy)) {
+        alert("Game Over!")
+        return
+      }
       if(isSameArray(currentGrid, gridCopy))
         return
       animateTiles(currentGrid, gridCopy)
@@ -49,6 +54,10 @@ document.body.addEventListener("keydown", (event) => {
       break;
     case "ArrowDown":
       shiftDown(gridCopy)
+      if (isGameOver(gridCopy)) {
+        alert("Game Over!")
+        return
+      }
       if(isSameArray(currentGrid, gridCopy))
         return
       animateTiles(currentGrid, gridCopy)
@@ -58,6 +67,10 @@ document.body.addEventListener("keydown", (event) => {
       break;
     case "ArrowLeft":
       shiftLeft(gridCopy)
+      if (isGameOver(gridCopy)) {
+        alert("Game Over!")
+        return
+      }
       if(isSameArray(currentGrid, gridCopy))
         return
       animateTiles(currentGrid, gridCopy)
@@ -67,6 +80,10 @@ document.body.addEventListener("keydown", (event) => {
       break;
     case "ArrowRight":
       shiftRight(gridCopy)
+      if (isGameOver(gridCopy)) {
+        alert("Game Over!")
+        return
+      }
       if(isSameArray(currentGrid, gridCopy))
         return
       animateTiles(currentGrid, gridCopy)
