@@ -7,14 +7,8 @@ import addTile from "../methods/addTile"
 import copyArray from "../methods/copyArray";
 import isSameArray from "../methods/isSameArray";
 import isGameOver from '../methods/gameOver';
-import {useState} from "react";
+import createGrid from '../methods/createGrid';
 
-let initialGrid = {
-  2: [[2, 2], [2, 2]],
-  3: [[2, 2, 2], [2, 2, 2], [2, 2, 2]],
-  4: [[2, 2, 2, 2], [2, 2, 2, 2], [2, 2, 2, 2], [2, 2, 2, 2]],
-  5: [[2, 2, 2, 2, 2], [2, 2, 2, 2, 2], [2, 2, 2, 2, 2], [2, 2, 2, 2, 2], [2, 2, 2, 2, 2]]
-}
 
 let setGridFunc = null;
 let currentGrid = null;
@@ -119,20 +113,17 @@ document.body.addEventListener("keydown", (event) => {
   }
 })
 
+
 function Board() {
-  const newArray = copyArray(initialGrid[currGridSize]);
-  // setGridFunc(newArray);
-
+  
   const [gridSize, setGridSize] = useStorage('grid-size', 3);
-  setGridSizeFunc = setGridSize
-  currGridSize = gridSize
+  const [grid, setGrid] = useStorage("grid", copyArray(createGrid(gridSize)));
+  const [highScore, setHighScore] = useStorage("highScore" + gridSize, 0);
+  const [score, setScore] = useStorage("score" + gridSize, 0);
 
-  const [grid, setGrid] = useStorage("grid", newArray)
   setGridFunc = setGrid
   currentGrid = grid
 
-  const [highScore, setHighScore] = useStorage("highScore", 0);
-  const [score, setScore] = useStorage("score", 0);
   setScoreFunc = setScore;
   currentScore = score;
   setHighScoreFunc = setHighScore;
@@ -141,47 +132,39 @@ function Board() {
   return (
     <div className={'board-outer'}>
       <button onClick={(e) => {
-        setGridSize(2);
-        console.log(gridSize);
-        const newArray = copyArray(initialGrid[2]);
-        setGridFunc(newArray)
-        console.log(gridSize);
-      }}>2
-      </button>
-      <button onClick={(e) => {
         setGridSize(3);
-        const newArray = copyArray(initialGrid[3]);
-        console.log(gridSize);
-        setGridFunc(newArray)
+        setGridFunc(createGrid(3))
+        setScore(0);
       }}>3
       </button>
       <button onClick={(e) => {
-        setGridSize(4)
-        const newArray = copyArray(initialGrid[4])
-        setGridFunc(newArray)
+        setGridSize(4);
+        setGridFunc(createGrid(4))
+        setScore(0);
       }}>4
       </button>
       <button onClick={(e) => {
         setGridSize(5);
-        setGridFunc(initialGrid[5])
+        setGridFunc(createGrid(5))
+        setScore(0);
       }}>5
       </button>
       <button onClick={(e) => {
         setGridSize(6);
-        const newGrid = [...Array(6)].map(x => Array(6).fill(2));
-        setGridFunc(newGrid)
+        setGridFunc(createGrid(6))
+        setScore(0);
       }}>6
       </button>
       <button onClick={(e) => {
         setGridSize(7);
-        const newGrid = [...Array(7)].map(x => Array(7).fill(2));
-        setGridFunc(newGrid)
+        setGridFunc(createGrid(7))
+        setScore(0);
       }}>7
       </button>
       <button onClick={(e) => {
         setGridSize(8);
-        const newGrid = [...Array(8)].map(x => Array(8).fill(2));
-        setGridFunc(newGrid)
+        setGridFunc(createGrid(8))
+        setScore(0);
       }}>8
       </button>
 
@@ -221,8 +204,7 @@ function Board() {
         </div>
         <button onClick={() => {
           setScore(0);
-          const newArray = copyArray(initialGrid[gridSize]);
-          setGrid(newArray);
+          setGrid(createGrid(gridSize));
         }} className={'resetBtn'}>Reset
         </button>
       </div>

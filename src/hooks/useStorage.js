@@ -6,6 +6,7 @@ const getValue = (key, initialValue) => {
 }
 
 const useStorage = (key, initialValue) => {
+  console.log(key);
   const [value, saveValue] = useState(() => {
     return getValue(key, initialValue)
   })
