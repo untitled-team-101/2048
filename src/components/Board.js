@@ -17,6 +17,16 @@ const initialGrid = [
 let setGridFunc = null;
 let currentGrid = null;
 
+// move animation and merge animation
+const animateTiles = (prevGrid, currentGrid) => {
+  // call animation
+}
+
+// tile add animation
+const animateTileAddition = (prevGrid, currentGrid) => {
+  // call animation
+}
+
 document.body.addEventListener("keydown", (event)=>{
   if(!setGridFunc)
     return;
@@ -28,29 +38,36 @@ document.body.addEventListener("keydown", (event)=>{
       shiftUp(gridCopy)
       if(isSameArray(currentGrid, gridCopy))
         return
-
-      addTile(gridCopy);
+      animateTiles(currentGrid, gridCopy)
+      addTile(gridCopy)
+      animateTileAddition(currentGrid, gridCopy)
       setGridFunc(gridCopy)
       break;
     case "ArrowDown":
       shiftDown(gridCopy)
       if(isSameArray(currentGrid, gridCopy))
         return
-      addTile(gridCopy);
+      animateTiles(currentGrid, gridCopy)
+      addTile(gridCopy)
+      animateTileAddition(currentGrid, gridCopy)
       setGridFunc(gridCopy)
       break;
     case "ArrowLeft":
       shiftLeft(gridCopy)
       if(isSameArray(currentGrid, gridCopy))
         return
-      addTile(gridCopy);
+      animateTiles(currentGrid, gridCopy)
+      addTile(gridCopy)
+      animateTileAddition(currentGrid, gridCopy)
       setGridFunc(gridCopy)
       break;
     case "ArrowRight":
       shiftRight(gridCopy)
       if(isSameArray(currentGrid, gridCopy))
         return
-      addTile(gridCopy);
+      animateTiles(currentGrid, gridCopy)
+      addTile(gridCopy)
+      animateTileAddition(currentGrid, gridCopy)
       setGridFunc(gridCopy)
       break;
   }
