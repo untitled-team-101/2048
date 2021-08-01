@@ -89,7 +89,6 @@ export const shiftUp = (grid) => {
       }
     }
   }
-  console.log(grid)
 }
 
 export const shiftDown = (grid) => {

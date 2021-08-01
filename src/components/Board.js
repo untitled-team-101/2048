@@ -3,6 +3,7 @@ import React from 'react';
 import '../style/board.scss'
 import useStorage from "../hooks/useStorage";
 import {shiftDown, shiftLeft, shiftRight, shiftUp} from "../methods/tileMerging";
+import addTile from "../methods/addTile"
 
 const initialGrid = [
   [2, 2, 2, 2],
@@ -22,18 +23,22 @@ document.body.addEventListener("keydown", (event)=>{
   switch(event.key){
     case "ArrowUp":
       shiftUp(currentGrid)
+      addTile(currentGrid);
       setGridFunc([...currentGrid])
       break;
     case "ArrowDown":
       shiftDown(currentGrid)
+      addTile(currentGrid);
       setGridFunc([...currentGrid])
       break;
     case "ArrowLeft":
       shiftLeft(currentGrid)
+      addTile(currentGrid);
       setGridFunc([...currentGrid])
       break;
     case "ArrowRight":
       shiftRight(currentGrid)
+      addTile(currentGrid);
       setGridFunc([...currentGrid])
       break;
   }
