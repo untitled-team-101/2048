@@ -89,7 +89,7 @@ function Board() {
             return <React.Fragment key={i}>
               {
                 row.map((cell, j) => {
-                  return <div key={j} className={"cell"}>{cell}</div>
+                  return <div key={j} className={"cell"}>{cell===0 ? "" : cell}</div>
                 })
               }
             </React.Fragment>
