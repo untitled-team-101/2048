@@ -41,9 +41,10 @@ document.body.addEventListener("keydown", (event) => {
   if(!currentGrid)
     return
   const gridCopy = copyArray(currentGrid)
+  let scoreCopy = currentScore;
   switch (event.key) {
     case "ArrowUp":
-      shiftUp(gridCopy)
+      scoreCopy = shiftUp(gridCopy, currentScore)
       if (isGameOver(gridCopy)) {
         alert("Game Over!")
         return
@@ -60,7 +61,7 @@ document.body.addEventListener("keydown", (event) => {
                 setHighScoreFunc(scoreCopy)
       break;
     case "ArrowDown":
-      shiftDown(gridCopy)
+      scoreCopy = shiftDown(gridCopy, currentScore)
       if (isGameOver(gridCopy)) {
         alert("Game Over!")
         return
@@ -77,7 +78,7 @@ document.body.addEventListener("keydown", (event) => {
                 setHighScoreFunc(scoreCopy)
       break;
     case "ArrowLeft":
-      shiftLeft(gridCopy)
+      scoreCopy = shiftLeft(gridCopy, currentScore)
       if (isGameOver(gridCopy)) {
         alert("Game Over!")
         return
@@ -94,7 +95,7 @@ document.body.addEventListener("keydown", (event) => {
                 setHighScoreFunc(scoreCopy)
       break;
     case "ArrowRight":
-      shiftRight(gridCopy)
+      scoreCopy = shiftRight(gridCopy, currentScore)
       if (isGameOver(gridCopy)) {
         alert("Game Over!")
         return
@@ -124,7 +125,7 @@ function Board() {
   setGridSizeFunc = setGridSize
   currentGridSize = gridSize
   let [highScore, setHighScore] = useStorage("highScore", 0);
-
+  const [score, setScore] = useStorage("score", 0);
     setScoreFunc = setScore;
     currentScore = score;
 
