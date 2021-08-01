@@ -4,6 +4,8 @@ import '../style/board.scss'
 import useStorage from "../hooks/useStorage";
 import {shiftDown, shiftLeft, shiftRight, shiftUp} from "../methods/tileMerging";
 import addTile from "../methods/addTile"
+import copyArray from "../methods/copyArray";
+import isSameArray from "../methods/isSameArray";
 
 const initialGrid = [
   [2, 2, 2, 2],
@@ -20,26 +22,36 @@ document.body.addEventListener("keydown", (event)=>{
     return;
   if(!currentGrid)
     return
+  const gridCopy = copyArray(currentGrid)
   switch(event.key){
     case "ArrowUp":
-      shiftUp(currentGrid)
-      addTile(currentGrid);
-      setGridFunc([...currentGrid])
+      shiftUp(gridCopy)
+      if(isSameArray(currentGrid, gridCopy))
+        return
+
+      addTile(gridCopy);
+      setGridFunc(gridCopy)
       break;
     case "ArrowDown":
-      shiftDown(currentGrid)
-      addTile(currentGrid);
-      setGridFunc([...currentGrid])
+      shiftDown(gridCopy)
+      if(isSameArray(currentGrid, gridCopy))
+        return
+      addTile(gridCopy);
+      setGridFunc(gridCopy)
       break;
     case "ArrowLeft":
-      shiftLeft(currentGrid)
-      addTile(currentGrid);
-      setGridFunc([...currentGrid])
+      shiftLeft(gridCopy)
+      if(isSameArray(currentGrid, gridCopy))
+        return
+      addTile(gridCopy);
+      setGridFunc(gridCopy)
       break;
     case "ArrowRight":
-      shiftRight(currentGrid)
-      addTile(currentGrid);
-      setGridFunc([...currentGrid])
+      shiftRight(gridCopy)
+      if(isSameArray(currentGrid, gridCopy))
+        return
+      addTile(gridCopy);
+      setGridFunc(gridCopy)
       break;
   }
 })
