@@ -1,11 +1,11 @@
 import "./App.scss";
 import { HashRouter, Route, Switch } from "react-router-dom";
 import Board from "./components/Board";
-import FrontPage from "./component/FrontPage";
+import FrontPage from "./components/FrontPage";
 import { AnimatePresence, motion } from "framer-motion";
-import HowToMobile from "./component/HowToMobile";
-import HowToDesktop from "./component/HowToDesktop";
-import GameOver from "./component/GameOver";
+import HowToMobile from "./components/HowToMobile";
+import HowToDesktop from "./components/HowToDesktop";
+import GameOver from "./components/GameOver";
 
 function App() {
   return (
