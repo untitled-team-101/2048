@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "../style/FrontPage.scss";
 import { motion } from "framer-motion";
 import { BrowserView, MobileView } from "react-device-detect";
+import React from "react";
 
 const FrontPage = () => {
   const pageTransition = {
@@ -35,6 +36,7 @@ const FrontPage = () => {
       <div className={"frontPageFooter"}>
         Made with &#10084; by @untitledTeam
       </div>
+      <Link to={"/gameOver"}>Press</Link>
     </motion.div>
   );
 };
