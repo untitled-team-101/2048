@@ -1,13 +1,27 @@
-.board {
-    display: grid;
-    grid-template: repeat(4, auto)/repeat(4, auto);
-    height: 100vmin;
-    width: 100vmin;
-    border: 1px solid white;
-    .cell {
-        border: 1px solid white;
+.board-outer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: none;
+    animation: board 1s ease forwards;
+    .board {
         display: grid;
         place-content: center;
-        font-size: calc(4vmin + 5vmax);
+        //font-size: calc(4vmin + 5vmax);
+        grid-template: repeat(4, 25%)/repeat(4, 25%);
+        height: 60vmin;
+        width: 60vmin;
+        border: 1px solid white;
+        transform-style: preserve-3d;
+        transition: 1s ease;
+        transform: rotateX(00deg) rotateY(-10deg);
+        box-shadow: 0 0 10vmin #000;
+        .cell {
+            border: 1px solid white;
+            display: grid;
+            place-content: center;
+        }
     }
 }

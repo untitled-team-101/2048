@@ -20,20 +20,24 @@ let currentGrid = null;
 // move animation and merge animation
 const animateTiles = (prevGrid, currentGrid) => {
   // call animation
+  console.log("animatetiles");
+  console.table(prevGrid);
 }
 
 // tile add animation
 const animateTileAddition = (prevGrid, currentGrid) => {
   // call animation
+  console.log("animatetileadd");
+  console.table(prevGrid);
 }
 
-document.body.addEventListener("keydown", (event)=>{
-  if(!setGridFunc)
+document.body.addEventListener("keydown", (event) => {
+  if (!setGridFunc)
     return;
   if(!currentGrid)
     return
   const gridCopy = copyArray(currentGrid)
-  switch(event.key){
+  switch (event.key) {
     case "ArrowUp":
       shiftUp(gridCopy)
       if(isSameArray(currentGrid, gridCopy))
@@ -78,18 +82,20 @@ function Board() {
   setGridFunc = setGrid
   currentGrid = grid
   return (
-    <div className={"board"}>
-      {
-        grid.map((row, i) => {
-          return <React.Fragment key={i}>
-            {
-              row.map((cell, j) => {
-                return <div key={j} className={"cell"}>{cell}</div>
-              })
-            }
-          </React.Fragment>
-        })
-      }
+    <div className={'board-outer'}>
+      <div className={"board"}>
+        {
+          grid.map((row, i) => {
+            return <React.Fragment key={i}>
+              {
+                row.map((cell, j) => {
+                  return <div key={j} className={"cell"}>{cell}</div>
+                })
+              }
+            </React.Fragment>
+          })
+        }
+      </div>
     </div>
   );
 }
