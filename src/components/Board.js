@@ -9,7 +9,9 @@ import isSameArray from "../methods/isSameArray";
 import isGameOver from '../methods/gameOver';
 import createGrid from '../methods/createGrid';
 import Tiles from "./Tiles";
+import isGameOwn from '../methods/gameWin';
 
+let currentGridSize = 4;
 let setGridFunc = null;
 let currentGrid = null;
 
@@ -60,8 +62,17 @@ const animateTileAddition = ({x, y}) => {
   // console.table(prevGrid);
 }
 
+let showTiltAnimation = (dir) => {
+  let className = `${dir}-animation`;
+  let board = document.querySelector(".board")
+  board?.classList.add(className)
+  setTimeout(() => {
+    board?.classList?.remove(className)
+  }, animationDelay*19/20)
+}
+
 let isChanging = false;
-const changeTiles = (changeFunction) => {
+const changeTiles = (changeFunction, moveDir) => {
   if (!setGridFunc)
     return
   if (!currentGrid)
@@ -79,18 +90,22 @@ const changeTiles = (changeFunction) => {
   }
   animateTiles(changes)
   animateTileAddition(addTile(gridCopy))
+  showTiltAnimation(moveDir)
   setTimeout(() => {
     try {
       setGridFunc(gridCopy)
       setScoreFunc(scoreCopy)
       if (scoreCopy > currentHighScore)
         setHighScoreFunc(scoreCopy)
-      if (isGameOver(gridCopy))
+      if (isGameOwn(gridCopy, currentGridSize)){
+        // TODO: Add on game win activity
+      }
+      else if (isGameOver(gridCopy))
         setTimeout(()=>alert("Game Over!"), 1)
-    } catch (e) {
-    }
-    isChanging = false;
-  }, animationDelay)
+
+    } catch (e) {}
+    isChanging = false
+  }, animationDelay*19/20)
 }
 
 document.body.addEventListener("keydown", (event) => {
@@ -98,22 +113,22 @@ document.body.addEventListener("keydown", (event) => {
     case "ArrowUp":
     case "w":
     case "W":
-      changeTiles(shiftUp)
+      changeTiles(shiftUp, "top")
       break;
     case "ArrowDown":
     case "s":
     case "S":
-      changeTiles(shiftDown)
+      changeTiles(shiftDown, "bottom")
       break;
     case "ArrowLeft":
     case "a":
     case "A":
-      changeTiles(shiftLeft)
+      changeTiles(shiftLeft, "left")
       break;
     case "ArrowRight":
     case "D":
     case "d":
-      changeTiles(shiftRight)
+      changeTiles(shiftRight, "right")
       break;
   }
   return true
@@ -124,18 +139,18 @@ const { swipeArea } = SwipeEventListener({
 });
 
 swipeArea.addEventListener('swipeDown', () => {
-  changeTiles(shiftDown)
+  changeTiles(shiftDown, "bottom")
 });
 swipeArea.addEventListener('swipeUp', () => {
-  changeTiles(shiftUp)
+  changeTiles(shiftUp, "top")
 });
 
 swipeArea.addEventListener('swipeLeft', () => {
-  changeTiles(shiftLeft)
+  changeTiles(shiftLeft, "left")
 });
 
 swipeArea.addEventListener('swipeRight', () => {
-  changeTiles(shiftRight)
+  changeTiles(shiftRight, "right")
 });
 
 
@@ -147,6 +162,7 @@ function Board() {
 
   setGridFunc = setGrid
   currentGrid = grid
+  currentGridSize = gridSize
   setScoreFunc = setScore;
   currentScore = score;
   setHighScoreFunc = setHighScore;
@@ -154,42 +170,6 @@ function Board() {
 
   return (
     <div className={'board-outer'}>
-      {/*<button onClick={(e) => {*/}
-      {/*  setGridSize(3);*/}
-      {/*  setGridFunc(createGrid(3))*/}
-      {/*  setScore(0);*/}
-      {/*}}>3*/}
-      {/*</button>*/}
-      {/*<button onClick={(e) => {*/}
-      {/*  setGridSize(4);*/}
-      {/*  setGridFunc(createGrid(4))*/}
-      {/*  setScore(0);*/}
-      {/*}}>4*/}
-      {/*</button>*/}
-      {/*<button onClick={(e) => {*/}
-      {/*  setGridSize(5);*/}
-      {/*  setGridFunc(createGrid(5))*/}
-      {/*  setScore(0);*/}
-      {/*}}>5*/}
-      {/*</button>*/}
-      {/*<button onClick={(e) => {*/}
-      {/*  setGridSize(6);*/}
-      {/*  setGridFunc(createGrid(6))*/}
-      {/*  setScore(0);*/}
-      {/*}}>6*/}
-      {/*</button>*/}
-      {/*<button onClick={(e) => {*/}
-      {/*  setGridSize(7);*/}
-      {/*  setGridFunc(createGrid(7))*/}
-      {/*  setScore(0);*/}
-      {/*}}>7*/}
-      {/*</button>*/}
-      {/*<button onClick={(e) => {*/}
-      {/*  setGridSize(8);*/}
-      {/*  setGridFunc(createGrid(8))*/}
-      {/*  setScore(0);*/}
-      {/*}}>8*/}
-      {/*</button>*/}
 
       <div className={"board"}
            style={{gridTemplate: `repeat(${gridSize}, ${100 / gridSize}%)/repeat(${gridSize}, ${100 / gridSize}%)`}}>
