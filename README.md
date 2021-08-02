@@ -1,4 +1,4 @@
-![2048](https://github.com/sarveshspatil111/readme-docs/blob/main/2048/assets/2048-banner.png)
+![2048](https://github.com/untitled-team-101/2048/blob/main/assets/2048-banner.png)
 
 ### 2048 is a single-player sliding tile puzzle video game
 #### [Try it here](https://untitled-team-101.github.io/2048/)
@@ -6,21 +6,21 @@
 ## Controls
 | On Desktop | On Mobile |
 | --- | --- |
-| ![](https://github.com/sarveshspatil111/readme-docs/blob/main/2048/assets/press-right.gif) | ![](https://github.com/sarveshspatil111/readme-docs/blob/main/2048/assets/swipe-right.gif) |
+| ![](https://github.com/untitled-team-101/2048/blob/main/assets/press-right.gif) | ![](https://github.com/untitled-team-101/2048/blob/main/assets/swipe-right.gif) |
 
 
-## Screenshots
+<!-- ## Screenshots
 feature 1            |  feature 2
 :-------------------------:|:-------------------------:
 ![](https://raw.githubusercontent.com/sarveshspatil111/sarveshspatil111/master/assets/gifs/ezgif.com-gif-maker.gif) | ![](https://raw.githubusercontent.com/sarveshspatil111/sarveshspatil111/master/assets/gifs/ezgif.com-gif-maker.gif)
 
 feature 3             |  feature 4
 :-------------------------:|:-------------------------:
-![](https://raw.githubusercontent.com/sarveshspatil111/sarveshspatil111/master/assets/gifs/ezgif.com-gif-maker.gif) | ![](https://raw.githubusercontent.com/sarveshspatil111/sarveshspatil111/master/assets/gifs/ezgif.com-gif-maker.gif)
+![](https://raw.githubusercontent.com/sarveshspatil111/sarveshspatil111/master/assets/gifs/ezgif.com-gif-maker.gif) | ![](https://raw.githubusercontent.com/sarveshspatil111/sarveshspatil111/master/assets/gifs/ezgif.com-gif-maker.gif) -->
 
 ## Demo
 
-[Demo Video](https://drive.google.com/file/d/1pHFSM7wNHZyR-kEhiM7lWqcmrSjL07iA/view?usp=sharing)
+[Demo Video](https://drive.google.com/drive/folders/1tg5Kp9G8smAlBwb2Qytpt0qKBjc8SWMz?usp=sharing)
 
 ## Contributors
 
