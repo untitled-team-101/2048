@@ -1,4 +1,5 @@
 import {SwipeEventListener} from 'swipe-event-listener';
+import {Link, Redirect} from 'react-router-dom';
 import React from 'react';
 import '../style/board.scss'
 import useStorage from "../hooks/useStorage";
@@ -100,8 +101,9 @@ const changeTiles = (changeFunction, moveDir) => {
         setHighScoreFunc(scoreCopy)
       if (isGameOwn(gridCopy, currentGridSize)) {
         // TODO: Add on game win activity
-      } else if (isGameOver(gridCopy))
-        setTimeout(() => alert("Game Over!"), 1)
+      } else if (isGameOver(gridCopy)){
+
+      }
 
     } catch (e) {
     }
@@ -156,7 +158,7 @@ swipeArea.addEventListener('swipeRight', () => {
 
 
 function Board() {
-  const [gridSize, setGridSize] = useStorage('grid-size', 4);
+  const [gridSize, setGridSize] = useStorage('grid-size', 3);
   const [grid, setGrid] = useStorage("grid", copyArray(createGrid(gridSize)));
   const [highScore, setHighScore] = useStorage("highScore" + gridSize, 0);
   const [score, setScore] = useStorage("score" + gridSize, 0);
@@ -168,6 +170,7 @@ function Board() {
   currentScore = score;
   setHighScoreFunc = setHighScore;
   currentHighScore = highScore;
+
 
   return (<
     div className={'board-outer'}>
@@ -208,13 +211,8 @@ function Board() {
       }
     } className={'resetBtn'}> Reset
     </button>
-    <button onClick={
-      () => {
-        window.location.href = "#/gameover";
-      }
-    }
-             className={'creditsBtn'}> Credits
-    </button>
+    <>{(isGameOver(grid)) ? <Redirect to={"/gameOver"}/> : null}</>
+
   </div>
 );
 }
