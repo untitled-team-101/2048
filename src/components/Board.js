@@ -9,6 +9,7 @@ import isSameArray from "../methods/isSameArray";
 import isGameOver from '../methods/gameOver';
 import createGrid from '../methods/createGrid';
 import Tiles from "./Tiles";
+import {Redirect} from "react-router-dom";
 
 let setGridFunc = null;
 let currentGrid = null;
@@ -18,6 +19,8 @@ let currentScore = null;
 
 let currentHighScore = null;
 let setHighScoreFunc = null;
+
+let setKyaGameOverHai = null;
 
 const animationDelay = 500; // ms
 
@@ -86,7 +89,10 @@ const changeTiles = (changeFunction) => {
       if (scoreCopy > currentHighScore)
         setHighScoreFunc(scoreCopy)
       if (isGameOver(gridCopy))
-        setTimeout(()=>alert("Game Over!"), 1)
+        setTimeout(()=>{
+          console.log("buib");
+          setKyaGameOverHai(true);
+        }, 1000)
     } catch (e) {
     }
     isChanging = false;
@@ -112,11 +118,13 @@ document.body.addEventListener("keydown", (event) => {
 
 
 function Board() {
-  const [gridSize, setGridSize] = useStorage('grid-size', 4);
+  const [gridSize, setGridSize] = useStorage('grid-size', 3);
   const [grid, setGrid] = useStorage("grid", copyArray(createGrid(gridSize)));
   const [highScore, setHighScore] = useStorage("highScore" + gridSize, 0);
   const [score, setScore] = useStorage("score" + gridSize, 0);
+  const [GameOverHai, setGameOverHai] = useStorage("gameOver", false);
 
+  setKyaGameOverHai = setGameOverHai;
   setGridFunc = setGrid
   currentGrid = grid
   setScoreFunc = setScore;
@@ -126,43 +134,8 @@ function Board() {
 
   return (
     <div className={'board-outer'}>
-      {/*<button onClick={(e) => {*/}
-      {/*  setGridSize(3);*/}
-      {/*  setGridFunc(createGrid(3))*/}
-      {/*  setScore(0);*/}
-      {/*}}>3*/}
-      {/*</button>*/}
-      {/*<button onClick={(e) => {*/}
-      {/*  setGridSize(4);*/}
-      {/*  setGridFunc(createGrid(4))*/}
-      {/*  setScore(0);*/}
-      {/*}}>4*/}
-      {/*</button>*/}
-      {/*<button onClick={(e) => {*/}
-      {/*  setGridSize(5);*/}
-      {/*  setGridFunc(createGrid(5))*/}
-      {/*  setScore(0);*/}
-      {/*}}>5*/}
-      {/*</button>*/}
-      {/*<button onClick={(e) => {*/}
-      {/*  setGridSize(6);*/}
-      {/*  setGridFunc(createGrid(6))*/}
-      {/*  setScore(0);*/}
-      {/*}}>6*/}
-      {/*</button>*/}
-      {/*<button onClick={(e) => {*/}
-      {/*  setGridSize(7);*/}
-      {/*  setGridFunc(createGrid(7))*/}
-      {/*  setScore(0);*/}
-      {/*}}>7*/}
-      {/*</button>*/}
-      {/*<button onClick={(e) => {*/}
-      {/*  setGridSize(8);*/}
-      {/*  setGridFunc(createGrid(8))*/}
-      {/*  setScore(0);*/}
-      {/*}}>8*/}
-      {/*</button>*/}
-
+      
+      {GameOverHai ? <Redirect to = "./GameOver" /> : ""}  
       <div className={"board"}
            style={{gridTemplate: `repeat(${gridSize}, ${100 / gridSize}%)/repeat(${gridSize}, ${100 / gridSize}%)`}}>
         {
