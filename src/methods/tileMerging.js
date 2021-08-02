@@ -7,9 +7,7 @@ export const shiftUp = (grid, score) => {
         for(let k = 0; k < i; k++){
           if(grid[k][j] === grid[i][j]){
             if(k < i-1){
-              console.log(1, i, j, k)
               if(grid[k+1][j] === 0){
-                console.log(1, i, j, k)
                 grid[k][j] = grid[i][j] * 2
                 grid[i][j] = 0
                 merges.push({
@@ -20,7 +18,6 @@ export const shiftUp = (grid, score) => {
               }
             }
             else {
-              console.log(1, i, j, k)
               grid[k][j] = grid[i][j] * 2
               grid[i][j] = 0
               merges.push({
@@ -31,7 +28,6 @@ export const shiftUp = (grid, score) => {
             }
           }
           if(grid[k][j] === 0){
-            console.log(4)
             grid[k][j] = grid[i][j]
             grid[i][j] = 0
             moves.push({
@@ -57,9 +53,7 @@ export const shiftDown = (grid, score) => {
         for(let k = grid.length - 1; k > i; k--){
           if(grid[k][j] === grid[i][j]){
             if(k > i+1){
-              console.log(1, i, j, k)
               if(grid[k-1][j] === 0){
-                console.log(1, i, j, k)
                 grid[k][j] = grid[i][j] * 2
                 grid[i][j] = 0
                 merges.push({
@@ -70,7 +64,6 @@ export const shiftDown = (grid, score) => {
               }
             }
             else {
-              console.log(1, i, j, k)
               grid[k][j] = grid[i][j] * 2
               grid[i][j] = 0
               merges.push({
@@ -81,7 +74,6 @@ export const shiftDown = (grid, score) => {
             }
           }
           if(grid[k][j] === 0){
-            console.log(4)
             grid[k][j] = grid[i][j]
             grid[i][j] = 0
             moves.push({
@@ -106,9 +98,7 @@ export const shiftLeft = (grid, score) => {
         for(let k = 0; k < j; k++){
           if(grid[i][k] === grid[i][j]){
             if(k < j-1){
-              console.log(1, i, j, k)
               if(grid[i][k+1] === 0){
-                console.log(1, i, j, k)
                 grid[i][k] = grid[i][j] * 2
                 grid[i][j] = 0
                 merges.push({
@@ -119,7 +109,6 @@ export const shiftLeft = (grid, score) => {
               }
             }
             else {
-              console.log(1, i, j, k)
               grid[i][k] = grid[i][j] * 2
               grid[i][j] = 0
               merges.push({
@@ -130,7 +119,6 @@ export const shiftLeft = (grid, score) => {
             }
           }
           if(grid[i][k] === 0){
-            console.log(4)
             grid[i][k] = grid[i][j]
             grid[i][j] = 0
             moves.push({
@@ -156,9 +144,7 @@ export const shiftRight = (grid, score) => {
         for(let k = grid.length; k > j; k--){
           if(grid[i][k] === grid[i][j]){
             if(k > j+1){
-              console.log(1, i, j, k)
               if(grid[i][k-1] === 0){
-                console.log(1, i, j, k)
                 grid[i][k] = grid[i][j] * 2
                 grid[i][j] = 0
                 merges.push({
@@ -169,7 +155,6 @@ export const shiftRight = (grid, score) => {
               }
             }
             else {
-              console.log(1, i, j, k)
               grid[i][k] = grid[i][j] * 2
               grid[i][j] = 0
               merges.push({
@@ -180,7 +165,6 @@ export const shiftRight = (grid, score) => {
             }
           }
           if(grid[i][k] === 0){
-            console.log(4)
             grid[i][k] = grid[i][j]
             grid[i][j] = 0
             moves.push({

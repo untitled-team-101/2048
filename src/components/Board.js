@@ -25,32 +25,41 @@ const animationDelay = 500; // ms
 const hasMove = {}
 
 const animateTiles = ({moves, merges}) => {
-  console.log(moves)
   const tiles = {}
-  for(let move of moves){
+  for (let move of moves) {
     const {from, to} = move
-    console.log(move, from, to)
     let tile;
-    if(tiles[`${from.x}_${from.y}`]){
+    if (tiles[`${from.x}_${from.y}`]) {
       tile = tiles[`${from.x}_${from.y}`]
       tiles[`${from.x}_${from.y}`] = undefined
-    }
-    else
+    } else
       tile = document.querySelector(`[data-i='${from.x}'][data-j='${from.y}']`)
-    if(!tile)
-      console.log(from)
-    tile.style.setProperty('--i', to.x);
-    tile.style.setProperty('--j', to.y);
+    tile?.style?.setProperty('--i', to.x);
+    tile?.style?.setProperty('--j', to.y);
     tiles[`${to.x}_${to.y}`] = tile
   }
-  // call animation
-  // console.log("animate tiles");
-  // console.table(prevGrid);
+
+  const mergeTiles = {};
+  for (let merge of merges) {
+    const {from, to} = merge;
+    let tile;
+    if (mergeTiles[`${from.x}_${from.y}`]) {
+      tile = mergeTiles[`${from.x}_${from.y}`]
+      mergeTiles[`${from.x}_${from.y}`] = undefined
+    } else
+      tile = document.querySelector(`[data-i='${from.x}'][data-j='${from.y}']`)
+    tile?.style?.setProperty('--i', to.x);
+    tile?.style?.setProperty('--j', to.y);
+    mergeTiles[`${to.x}_${to.y}`] = tile
+  }
+
+
 }
 
 // tile add animation
 const animateTileAddition = (tilePos) => {
   // call animation
+  // TODO
   // console.log("animate tile add");
   // console.table(prevGrid);
 }
@@ -61,28 +70,29 @@ const changeTiles = (changeFunction) => {
     return
   if (!currentGrid)
     return
-  if(isChanging)
+  if (isChanging)
     return
   isChanging = true
   const gridCopy = copyArray(currentGrid)
   let scoreCopy
   const changes = changeFunction(gridCopy, currentScore)
   scoreCopy = changes.score
-  if (isSameArray(currentGrid, gridCopy)){
+  if (isSameArray(currentGrid, gridCopy)) {
     isChanging = false
     return
   }
   animateTiles(changes)
   animateTileAddition(addTile(gridCopy))
-  setTimeout(()=>{
-    try{
+  setTimeout(() => {
+    try {
       setGridFunc(gridCopy)
       setScoreFunc(scoreCopy)
       if (scoreCopy > currentHighScore)
         setHighScoreFunc(scoreCopy)
       if (isGameOver(gridCopy))
         alert("Game Over!")
-    }catch(e){}
+    } catch (e) {
+    }
     isChanging = false;
   }, animationDelay)
 }

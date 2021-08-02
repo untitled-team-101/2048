@@ -4,41 +4,41 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  perspective: none;
+  perspective: 120vmin;
   animation: board 1s ease forwards;
   position: absolute;
   top: 0;
   left: 0;
-  
+
   .board {
     display: grid;
     place-content: center;
-    //font-size: calc(4vmin + 5vmax);
+    font-size: calc(6vmin);
     height: 60vmin;
     width: 60vmin;
     background: #282a36;
     border: 1px solid white;
     transform-style: preserve-3d;
     transition: 1s ease;
-    transform: rotateX(00deg) rotateY(-10deg);
+    transform: rotateX(50deg) rotateY(0deg);
     box-shadow: 0 0 10vmin #000;
-    
+
     button {
       cursor: pointer;
       display: none;
     }
-    
+
     .cell {
       border: 1px solid white;
       display: grid;
       place-content: center;
     }
   }
-  
+
   .sideBar {
     background-color: lightblue;
     color: black;
-      display: none;
+    display: none;
 
     .scoreBoard {
       display: flex;
@@ -48,7 +48,7 @@
       //   #score , #highScore{
       //   }
     }
-    
+
     .resetBtn {
       background-color: #333;
       width: 10vw;

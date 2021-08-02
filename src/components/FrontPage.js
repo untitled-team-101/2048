@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import "../style/FrontPage.scss";
-import { motion } from "framer-motion";
-import { BrowserView, MobileView } from "react-device-detect";
+import {motion} from "framer-motion";
+import {BrowserView, MobileView} from "react-device-detect";
 import React from "react";
 
 const FrontPage = () => {
