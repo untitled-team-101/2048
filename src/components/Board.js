@@ -9,6 +9,7 @@ import isSameArray from "../methods/isSameArray";
 import isGameOver from '../methods/gameOver';
 import createGrid from '../methods/createGrid';
 import Tiles from "./Tiles";
+import GameLevel from './GameLevel';
 
 let setGridFunc = null;
 let currentGrid = null;
@@ -140,7 +141,7 @@ function Board() {
         }
         <Tiles grid={grid} gridSize={gridSize}/>
         <div className='front-but-back'>
-          front but back
+          <GameLevel/>
           {/*  TODO:apply this*/}
         </div>
       </div>

@@ -21,7 +21,7 @@ const HowToMobile = () => {
       <div className={"howToContent"}>
         <div className={"howToTitle"}>How to play 2048?</div>
         <img className={"swipeHowTo"} src={swipeRight}/>
-        <Link to={"/gameLevel"}>
+        <Link to={"/game"}>
           <div className={"nextBtn"}>Next</div>
         </Link>
       </div>
