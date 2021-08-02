@@ -1,4 +1,4 @@
-"use strict"
+import { SwipeEventListener } from 'swipe-event-listener';
 import React from 'react';
 import '../style/board.scss'
 import useStorage from "../hooks/useStorage";
@@ -96,19 +96,47 @@ const changeTiles = (changeFunction) => {
 document.body.addEventListener("keydown", (event) => {
   switch (event.key) {
     case "ArrowUp":
+    case "w":
+    case "W":
       changeTiles(shiftUp)
       break;
     case "ArrowDown":
+    case "s":
+    case "S":
       changeTiles(shiftDown)
       break;
     case "ArrowLeft":
+    case "a":
+    case "A":
       changeTiles(shiftLeft)
       break;
     case "ArrowRight":
+    case "D":
+    case "d":
       changeTiles(shiftRight)
       break;
   }
+  return true
 })
+
+const { swipeArea } = SwipeEventListener({
+  swipeArea: document.querySelector('body'),
+});
+
+swipeArea.addEventListener('swipeDown', () => {
+  changeTiles(shiftDown)
+});
+swipeArea.addEventListener('swipeUp', () => {
+  changeTiles(shiftUp)
+});
+
+swipeArea.addEventListener('swipeLeft', () => {
+  changeTiles(shiftLeft)
+});
+
+swipeArea.addEventListener('swipeRight', () => {
+  changeTiles(shiftRight)
+});
 
 
 function Board() {
