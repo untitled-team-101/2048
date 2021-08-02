@@ -36,7 +36,6 @@ const FrontPage = () => {
       <div className={"frontPageFooter"}>
         Made with &#10084; by @untitledTeam
       </div>
-      <Link to={"/gameOver"}>Press</Link>
     </motion.div>
   );
 };
