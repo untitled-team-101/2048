@@ -20,9 +20,6 @@ let currentHighScore = null;
 let setHighScoreFunc = null;
 
 const animationDelay = 500; // ms
-// move animation and merge animation
-
-const hasMove = {}
 
 const animateTiles = ({moves, merges}) => {
   const tiles = {}
@@ -52,14 +49,13 @@ const animateTiles = ({moves, merges}) => {
     tile?.style?.setProperty('--j', to.y);
     mergeTiles[`${to.x}_${to.y}`] = tile
   }
-
-
 }
 
 // tile add animation
-const animateTileAddition = (tilePos) => {
+const animateTileAddition = ({x, y}) => {
+  console.log(x, y)
   // call animation
-  // TODO
+  // TODO: add add animation
   // console.log("animate tile add");
   // console.table(prevGrid);
 }
@@ -90,7 +86,7 @@ const changeTiles = (changeFunction) => {
       if (scoreCopy > currentHighScore)
         setHighScoreFunc(scoreCopy)
       if (isGameOver(gridCopy))
-        alert("Game Over!")
+        setTimeout(()=>alert("Game Over!"), 1)
     } catch (e) {
     }
     isChanging = false;

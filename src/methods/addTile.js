@@ -15,7 +15,7 @@ const pushTileAt = (grid, pos) => {
       if (grid[i][j] === 0) {
         if (pos === 0) {
           grid[i][j] = 2
-          return
+          return {x: i, y: j}
         }
         pos--
       }
@@ -27,6 +27,5 @@ export default function addTile(grid) {
   const emptyCount = countEmptyCells(grid)
   let randomPos = Math.floor(Math.random() * emptyCount)
   randomPos = randomPos === emptyCount ? emptyCount - 1 : randomPos
-  pushTileAt(grid, randomPos)
-  return randomPos
+  return pushTileAt(grid, randomPos)
 }
