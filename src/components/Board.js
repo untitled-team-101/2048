@@ -73,7 +73,7 @@ const changeTiles = (changeFunction) => {
     return
   }
   animateTiles(changes)
-  // animateTileAddition(addTile(gridCopy))
+  animateTileAddition(addTile(gridCopy))
   setTimeout(()=>{
     try{
       setGridFunc(gridCopy)
