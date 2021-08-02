@@ -1,9 +1,53 @@
 .tile {
-  background: white;
+  --height: 5vmin;
+  --box-height: calc(92% / var(--grid-size));
   position: absolute;
-  top: calc(var(--i)* 100% / var(--grid-size));
-  left: calc(var(--j)* 100% / var(--grid-size));
-  height: calc(100% / var(--grid-size) - 5px);
-  width: calc(100% / var(--grid-size) - 5px);
+  background: rgb(236, 239, 244);
+  background: radial-gradient(circle, rgba(236, 239, 244, 1) 0%, rgba(229, 233, 240, 1) 50%, rgba(216, 222, 233, 1) 100%);
+  top: calc((var(--i) * 100% / var(--grid-size)) + (4% / var(--grid-size)));
+  left: calc((var(--j) * 100% / var(--grid-size)) + (4% / var(--grid-size)));
+  height: var(--box-height);
+  width: calc(92% / var(--grid-size));
   transition: all 500ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  transform: translateZ(var(--height));
+
+
+  .box {
+    width: 100%;
+    height: var(--height);
+    background: #d8dee9;
+    position: absolute;
+  }
+
+  .front {
+    transform: rotateX(90deg) translateX(0) translateY(-2.5vmin) translateZ(calc(60vmin / var(--grid-size) * 92 / 100 / 2 - 1px));
+  }
+
+  .back {
+    transform: rotateX(90deg) rotateY(270deg) translateY(-2.5vmin) translateZ(calc(60vmin / var(--grid-size) * 92 / 100 / 2 - 1px));
+  }
+
+  .left {
+    transform: rotateX(90deg) rotateY(90deg) translateY(-2.5vmin) translateZ(calc(60vmin / var(--grid-size) * 92 / 100 / 2 - 1px));
+  }
+
+  .right {
+    transform: rotateX(90deg) rotateY(180deg) translateY(-2.5vmin) translateZ(calc(60vmin / var(--grid-size) * 92 / 100 / 2 - 1px));
+  }
+}
+.adding{
+  animation: add 0.5s ease;
+}
+@keyframes add {
+  0%{
+    transform: scale(0) translateY(0vmin);
+  }
+  100%{
+    transform: scale(1) translateY(-2.5vmin);
+  }
+
 }

@@ -1,4 +1,5 @@
 .board-outer {
+  background: #1f222d;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -17,11 +18,20 @@
     height: 60vmin;
     width: 60vmin;
     background: #282a36;
-    border: 1px solid white;
     transform-style: preserve-3d;
     transition: 1s ease;
-    transform: rotateX(50deg) rotateY(0deg);
     box-shadow: 0 0 10vmin #000;
+    transform: rotateX(40deg) rotateY(0deg) rotateZ(0deg);
+    perspective: none;
+
+
+    .front-but-back {
+      width: 60vmin;
+      height: 60vmin;
+      position: absolute;
+      background: red;
+      transform: rotateY(180deg);
+    }
 
     button {
       cursor: pointer;
@@ -29,10 +39,25 @@
     }
 
     .cell {
-      border: 1px solid white;
-      display: grid;
-      place-content: center;
+      border: 1px solid #717680;
     }
+  }
+
+  .left-animation{
+    animation: left-swipe 0.5s ease;
+  }
+  .right-animation{
+    animation: right-swipe 0.5s ease;
+  }
+  .top-animation{
+    animation: top-swipe 0.5s ease;
+  }
+  .bottom-animation{
+    animation: bottom-swipe 0.5s ease;
+  }
+
+  .not-playing {
+    transform: rotateX(0deg) rotateY(180deg) rotateZ(0deg);
   }
 
   .sideBar {
@@ -56,5 +81,49 @@
       height: 10vh;
       border-radius: 1.3vmin;
     }
+  }
+}
+@keyframes left-swipe {
+  0%{
+    transform: rotateX(40deg) rotateY(0deg) rotateZ(0deg);
+  }
+  50%{
+    transform: rotateX(40deg) rotateY(-30deg) rotateZ(0deg);
+  }
+  100%{
+    transform: rotateX(40deg) rotateY(0deg) rotateZ(0deg);
+  }
+}
+@keyframes right-swipe {
+  0%{
+    transform: rotateX(40deg) rotateY(0deg) rotateZ(0deg);
+  }
+  50%{
+    transform: rotateX(40deg) rotateY(30deg) rotateZ(0deg);
+  }
+  100%{
+    transform: rotateX(40deg) rotateY(0deg) rotateZ(0deg);
+  }
+}
+@keyframes top-swipe {
+  0%{
+    transform: rotateX(40deg) rotateY(0deg) rotateZ(0deg);
+  }
+  50%{
+    transform: rotateX(70deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100%{
+    transform: rotateX(40deg) rotateY(0deg) rotateZ(0deg);
+  }
+}
+@keyframes bottom-swipe {
+  0%{
+    transform: rotateX(40deg) rotateY(0deg) rotateZ(0deg);
+  }
+  50%{
+    transform: rotateX(10deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100%{
+    transform: rotateX(40deg) rotateY(0deg) rotateZ(0deg);
   }
 }

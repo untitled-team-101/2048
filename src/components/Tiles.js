@@ -23,7 +23,14 @@ function Tiles({grid, gridSize}) {
                     "--j": j,
                     "--grid-size": gridSize
                   }
-                } data-i={i} data-j={j} key={keyGen.next().value}>{cell}</div>:""
+                } data-i={i} data-j={j} key={keyGen.next().value}>
+                  {cell}
+                  <div className='box front'/>
+                  <div className='box back'/>
+                  <div className='box left'/>
+                  <div className='box right'/>
+
+                </div>:""
               })
             }
           </React.Fragment>

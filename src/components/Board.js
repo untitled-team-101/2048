@@ -110,7 +110,6 @@ document.body.addEventListener("keydown", (event) => {
   }
 })
 
-
 function Board() {
   const [gridSize, setGridSize] = useStorage('grid-size', 4);
   const [grid, setGrid] = useStorage("grid", copyArray(createGrid(gridSize)));
@@ -177,6 +176,10 @@ function Board() {
           })
         }
         <Tiles grid={grid} gridSize={gridSize}/>
+        <div className='front-but-back'>
+          front but back
+        {/*  TODO:apply this*/}
+        </div>
       </div>
 
       <div className={'sideBar'}>
