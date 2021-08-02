@@ -7,6 +7,8 @@ import HowToMobile from "./components/HowToMobile";
 import HowToDesktop from "./components/HowToDesktop";
 import GameOver from "./components/GameOver";
 import GameLevel from "./components/GameLevel";
+import Credits from "./components/Credits";
+
 
 function App() {
   return (
@@ -27,7 +29,10 @@ function App() {
               <Board />
             </Route>
             <Route exact path={"/gameOver"}>
-                <GameOver/>
+              <GameOver />
+            </Route>
+            <Route exact path={"/credits"}>
+              <Credits />
             </Route>
             <Route path={"/gameLevel"}>
               <GameLevel/>

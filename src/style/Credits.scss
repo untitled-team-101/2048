@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.credits {
+  height: 80vh;
+  width: 100vw;
+  font-family: "Source Code Pro", monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.heading {
+  color: #81a1c1;
+  font-size: 2.5vh;
+  font-weight: bold;
+  background: #2e3440;
+  border-radius: 0.5vh;
+  padding: 0.5vmin 3vmin;
+  margin-bottom: 3vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  a {
+    text-decoration: none;
+    background: #2e3440;
+    color: #81a1c1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .App-logo {
+      width: 8vmin;
+      height: 8vmin;
+      background: transparent;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .App-logo {
+        animation: App-logo-spin infinite 10s linear;
+      }
+    }
+    @keyframes App-logo-spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}
+
+.heading:hover {
+  opacity: 0.9;
+}
+
+.member-list {
+  color: #81a1c1;
+  font-size: 3vh;
+  padding: 1vh;
+  li {
+    background: #2e3440;
+    margin: 0.5vh;
+    list-style: none;
+    border-radius: 0.7vh;
+    padding: 0.5vmin 1vmin;
+    a {
+      font-family: "Source Code Pro", monospace;
+      color: #81a1c1;
+      background: #2e3440;
+    }
+  }
+}
+
+.member-list li:hover {
+  font-weight: bold;
+}
+
+.contributors {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contributors-text {
+  padding: 0.7vh;
+  font-size: 3vh;
+  font-weight: bold;
+  color: #81a1c1;
+  background: #2e3440;
+  border-radius: 1vh;
+}

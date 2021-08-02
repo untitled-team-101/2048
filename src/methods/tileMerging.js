@@ -20,6 +20,7 @@ export const shiftUp = (grid, score) => {
             }
             else {
               grid[k][j] = grid[i][j] * 2
+              score = score + grid[k][j];
               grid[i][j] = 0
               merges.push({
                 from: {x: i, y: j},
@@ -67,6 +68,7 @@ export const shiftDown = (grid, score) => {
             }
             else {
               grid[k][j] = grid[i][j] * 2
+              score = score + grid[k][j];
               grid[i][j] = 0
               merges.push({
                 from: {x: i, y: j},
@@ -113,6 +115,7 @@ export const shiftLeft = (grid, score) => {
             }
             else {
               grid[i][k] = grid[i][j] * 2
+              score = score + grid[i][k];
               grid[i][j] = 0
               merges.push({
                 from: {x: i, y: j},
@@ -149,6 +152,7 @@ export const shiftRight = (grid, score) => {
             if(k > j+1){
               if(grid[i][k-1] === 0){
                 grid[i][k] = grid[i][j] * 2
+                score = score + grid[i][k];
                 grid[i][j] = 0
                 merges.push({
                   from: {x: i, y: j},
