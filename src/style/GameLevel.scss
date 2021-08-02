@@ -10,11 +10,12 @@
     height: 100%;
     .level1, .level2, .level3{
       background-color: transparent;
-      padding: 5vmin;
+      height: 33%;
       left: 0;
       position: absolute;
       cursor: pointer;
-      width: 59vmin;
+      width: 60vmin;
+      z-index: 300;
     }
     .level1{
       top:3vmin;

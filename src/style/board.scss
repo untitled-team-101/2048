@@ -25,14 +25,16 @@
     box-shadow: 0 0 10vmin #000;
     transform: rotateX(40deg) rotateY(0deg) rotateZ(0deg);
     perspective: none;
-
+    &.rotated {
+      transform: rotateY(180deg);
+    }
 
     .front-but-back {
       width: 60vmin;
       height: 60vmin;
       position: absolute;
-      background: red;
-      transform: rotateY(180deg);
+      transform-style: preserve-3d;
+      transform: rotateY(180deg) translateZ(1px);
     }
 
     button {

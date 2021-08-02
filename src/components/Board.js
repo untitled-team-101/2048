@@ -162,7 +162,8 @@ function Board() {
     const [grid, setGrid] = useStorage("grid", copyArray(createGrid(gridSize)));
     const [highScore, setHighScore] = useStorage("highScore" + gridSize, 0);
     const [score, setScore] = useStorage("score", 0);
-
+    const [isGamePlaying, setIsGamePlaying] = useStorage("is-playing", false)
+    console.log(grid)
     setGridFunc = setGrid
     currentGrid = grid
     currentGridSize = gridSize
@@ -171,10 +172,15 @@ function Board() {
     setHighScoreFunc = setHighScore;
     currentHighScore = highScore;
 
+    const setGameMode = (n) => {
+        setIsGamePlaying(true)
+        setGridSize(n)
+        setGrid(createGrid(n))
+    }
 
     return (<
             div className={'board-outer'}>
-            <div className={"board"} style={
+            <div className={`board ${isGamePlaying ? "" : "rotated"}`} style={
                 {gridTemplate: `repeat(${gridSize}, ${100 / gridSize}%)/repeat(${gridSize}, ${100 / gridSize}%)`}}> {
                 grid.map((row, i) => {
                     return <React.Fragment key={i}> {
@@ -186,7 +192,7 @@ function Board() {
             }
                 <Tiles grid={grid} gridSize={gridSize}/>
                 <div className='front-but-back'>
-                    <GameLevel/>
+                    <GameLevel setGameMode={setGameMode}/>
                 </div>
             </div>
 
@@ -211,7 +217,7 @@ function Board() {
                 }
             } className={'resetBtn'}> Reset
             </button>
-            <>{(isGameOver(grid)) ? <Redirect to={"/gameOver"}/> : null}</>
+            <>{(isGameOver(currentGrid)) ? <Redirect to={"/gameOver"}/> : null}</>
 
         </div>
     );
