@@ -1,0 +1,9 @@
+.tile {
+  background: white;
+  position: absolute;
+  top: calc(var(--i)* 100% / var(--grid-size));
+  left: calc(var(--j)* 100% / var(--grid-size));
+  height: calc(100% / var(--grid-size) - 5px);
+  width: calc(100% / var(--grid-size) - 5px);
+  transition: all 500ms;
+}

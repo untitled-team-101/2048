@@ -8,6 +8,7 @@ import copyArray from "../methods/copyArray";
 import isSameArray from "../methods/isSameArray";
 import isGameOver from '../methods/gameOver';
 import createGrid from '../methods/createGrid';
+import Tiles from "./Tiles";
 
 let setGridFunc = null;
 let currentGrid = null;
@@ -20,14 +21,35 @@ let setHighScoreFunc = null;
 
 const animationDelay = 500; // ms
 // move animation and merge animation
-const animateTiles = (prevGrid, currentGrid) => {
+
+const hasMove = {}
+
+const animateTiles = ({moves, merges}) => {
+  console.log(moves)
+  const tiles = {}
+  for(let move of moves){
+    const {from, to} = move
+    console.log(move, from, to)
+    let tile;
+    if(tiles[`${from.x}_${from.y}`]){
+      tile = tiles[`${from.x}_${from.y}`]
+      tiles[`${from.x}_${from.y}`] = undefined
+    }
+    else
+      tile = document.querySelector(`[data-i='${from.x}'][data-j='${from.y}']`)
+    if(!tile)
+      console.log(from)
+    tile.style.setProperty('--i', to.x);
+    tile.style.setProperty('--j', to.y);
+    tiles[`${to.x}_${to.y}`] = tile
+  }
   // call animation
   // console.log("animate tiles");
   // console.table(prevGrid);
 }
 
 // tile add animation
-const animateTileAddition = (prevGrid) => {
+const animateTileAddition = (tilePos) => {
   // call animation
   // console.log("animate tile add");
   // console.table(prevGrid);
@@ -39,10 +61,8 @@ const changeTiles = (changeFunction) => {
     return
   if (!currentGrid)
     return
-  if(isChanging){
-    console.log("return")
+  if(isChanging)
     return
-  }
   isChanging = true
   const gridCopy = copyArray(currentGrid)
   let scoreCopy
@@ -53,7 +73,7 @@ const changeTiles = (changeFunction) => {
     return
   }
   animateTiles(changes)
-  animateTileAddition(addTile(gridCopy))
+  // animateTileAddition(addTile(gridCopy))
   setTimeout(()=>{
     try{
       setGridFunc(gridCopy)
@@ -86,7 +106,7 @@ document.body.addEventListener("keydown", (event) => {
 
 
 function Board() {
-  const [gridSize, setGridSize] = useStorage('grid-size', 3);
+  const [gridSize, setGridSize] = useStorage('grid-size', 4);
   const [grid, setGrid] = useStorage("grid", copyArray(createGrid(gridSize)));
   const [highScore, setHighScore] = useStorage("highScore" + gridSize, 0);
   const [score, setScore] = useStorage("score" + gridSize, 0);
@@ -144,12 +164,13 @@ function Board() {
             return <React.Fragment key={i}>
               {
                 row.map((cell, j) => {
-                  return <div key={j} className={"cell"}>{cell === 0 ? "" : cell}</div>
+                  return <div key={j} className={"cell"}/>
                 })
               }
             </React.Fragment>
           })
         }
+        <Tiles grid={grid} gridSize={gridSize}/>
       </div>
 
       <div className={'sideBar'}>
