@@ -20,7 +20,7 @@ const HowToDesktop = () => {
       <div className={"howToContent"}>
         <div className={"howToTitle"}>How to play 2048?</div>
         <img className={"pressHowTo"} src={pressRight}/>
-        <Link to={"/game"}>
+        <Link to={"/gameLevel"}>
           <div className={"nextBtn"}>Next</div>
         </Link>
       </div>

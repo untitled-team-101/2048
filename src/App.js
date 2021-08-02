@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import HowToMobile from "./components/HowToMobile";
 import HowToDesktop from "./components/HowToDesktop";
 import GameOver from "./components/GameOver";
+import GameLevel from "./components/GameLevel";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
             </Route>
             <Route exact path={"/gameOver"}>
                 <GameOver/>
+            </Route>
+            <Route path={"/gameLevel"}>
+              <GameLevel/>
             </Route>
             <Route path={"/"}>
               <h1>404 Error</h1>
