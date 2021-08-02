@@ -15,7 +15,8 @@ const FrontPage = () => {
       x: "-100%",
     },
   };
-
+  localStorage.removeItem("grid");
+  localStorage.setItem("score", "0");
   return (
     <motion.div initial="out" animate="in" exit="out" variants={pageTransition}>
       <div className="frontPageContent">

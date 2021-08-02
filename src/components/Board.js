@@ -161,7 +161,7 @@ function Board() {
     const [gridSize, setGridSize] = useStorage('grid-size', 3);
     const [grid, setGrid] = useStorage("grid", copyArray(createGrid(gridSize)));
     const [highScore, setHighScore] = useStorage("highScore" + gridSize, 0);
-    const [score, setScore] = useStorage("score" + gridSize, 0);
+    const [score, setScore] = useStorage("score", 0);
 
     setGridFunc = setGrid
     currentGrid = grid

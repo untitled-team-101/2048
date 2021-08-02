@@ -4,10 +4,9 @@ import {Redirect} from "react-router-dom";
 import {useState} from "react";
 
 const GameOver = () => {
-
     const [cred, setCred] = useState(false);
-
-
+    localStorage.removeItem("grid");
+    localStorage.setItem("score", "0");
     setTimeout(() => {
         setCred(true)
         console.log(cred);
