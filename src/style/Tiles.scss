@@ -1,5 +1,5 @@
 .tile {
-    --height: 5vmin;
+    --height: 4vmin;
     --box-height: calc(92% / var(--grid-size));
     position: absolute;
     background: rgb(236, 239, 244);
@@ -21,16 +21,16 @@
         position: absolute;
     }
     .front {
-        transform: rotateX(90deg) translateX(0) translateY(-2.5vmin) translateZ(calc(60vmin / var(--grid-size) * 92 / 100 / 2 - 1px));
+        transform: rotateX(90deg) translateX(0) translateY(calc(var(--height) / (-2))) translateZ(calc(60vmin / var(--grid-size) * 92 / 100 / 2 - 1px));
     }
     .back {
-        transform: rotateX(90deg) rotateY(270deg) translateY(-2.5vmin) translateZ(calc(60vmin / var(--grid-size) * 92 / 100 / 2 - 1px));
+        transform: rotateX(90deg) rotateY(270deg) translateY(calc(var(--height) / (-2))) translateZ(calc(60vmin / var(--grid-size) * 92 / 100 / 2 - 1px));
     }
     .left {
-        transform: rotateX(90deg) rotateY(90deg) translateY(-2.5vmin) translateZ(calc(60vmin / var(--grid-size) * 92 / 100 / 2 - 1px));
+        transform: rotateX(90deg) rotateY(90deg) translateY(calc(var(--height) / (-2))) translateZ(calc(60vmin / var(--grid-size) * 92 / 100 / 2 - 1px));
     }
     .right {
-        transform: rotateX(90deg) rotateY(180deg) translateY(-2.5vmin) translateZ(calc(60vmin / var(--grid-size) * 92 / 100 / 2 - 1px));
+        transform: rotateX(90deg) rotateY(180deg) translateY(calc(var(--height) / (-2))) translateZ(calc(60vmin / var(--grid-size) * 92 / 100 / 2 - 1px));
     }
 }
 
