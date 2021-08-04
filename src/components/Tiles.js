@@ -23,7 +23,7 @@ function Tiles({grid, gridSize}) {
                     "--j": j,
                     "--grid-size": gridSize
                   }
-                } data-i={i} data-j={j} key={keyGen.next().value}>
+                } data-i={i} data-j={j} data-len={cell.toString().length} key={keyGen.next().value}>
                   {cell}
                   <div className='box front'/>
                   <div className='box back'/>

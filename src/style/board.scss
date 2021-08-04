@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;700&display=swap%22");
 
+button {
+  cursor: pointer;
+}
+
 .board-outer {
   background: #1f222d;
   width: 100vw;
@@ -25,6 +29,7 @@
     box-shadow: 0 0 10vmin #000;
     transform: rotateX(40deg) rotateY(0deg) rotateZ(0deg);
     perspective: none;
+    cursor: grab;
     &.rotated {
       transform: rotateY(180deg);
     }
@@ -44,6 +49,29 @@
 
     .cell {
       border: 1px solid #717680;
+    }
+  
+    &[data-grids='3']{
+      font-size: 300%;
+    }
+    &[data-grids='4']{
+      font-size: 250%;
+    }
+    &[data-grids='5']{
+      font-size: 200%;
+    }
+    
+    .tile[data-len="2"]{
+      font-size: 90%;
+    }
+    .tile[data-len="3"]{
+      font-size: 80%;
+    }
+    .tile[data-len="4"]{
+      font-size: 70%;
+    }
+    .tile[data-len="5"]{
+      font-size: 60%;
     }
   }
 

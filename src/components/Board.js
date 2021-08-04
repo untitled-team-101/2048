@@ -17,6 +17,7 @@ let currentGridSize = 4;
 let setGridFunc = null;
 let currentGrid = null;
 let gameOverFunc = null
+let isGameRunning = false;
 
 let setScoreFunc = null;
 let currentScore = null;
@@ -76,6 +77,8 @@ let showTiltAnimation = (dir) => {
 
 let isChanging = false;
 const changeTiles = (changeFunction, moveDir) => {
+  if (!isGameRunning)
+    return
   if (!setGridFunc)
     return
   if (!currentGrid)
@@ -98,7 +101,7 @@ const changeTiles = (changeFunction, moveDir) => {
     try {
       setGridFunc(gridCopy)
       setScoreFunc(scoreCopy)
-      if (scoreCopy > currentHighScores[currentGridSize]){
+      if (scoreCopy > currentHighScores[currentGridSize]) {
         currentHighScores[currentGridSize] = scoreCopy
         setHighScoresFunc({...currentHighScores})
       }
@@ -110,9 +113,7 @@ const changeTiles = (changeFunction, moveDir) => {
             gameOverFunc()
         }, 1000)
       }
-
-    } catch (e) {
-    }
+    } catch (e) {}
     isChanging = false
   }, animationDelay * 11 / 10)
 }
@@ -183,6 +184,7 @@ function Board() {
   currentScore = score;
   setHighScoresFunc = setHighScores;
   currentHighScores = highScores;
+  isGameRunning = isGamePlaying
 
   const resetGame = () => {
     setGrid(createGrid(gridSize))
@@ -190,7 +192,7 @@ function Board() {
     setIsGamePlaying(false)
   }
 
-  gameOverFunc = ()=>{
+  gameOverFunc = () => {
     localStorage.setItem("p-score", "0");
     setIsGameOut(true)
     setIsGamePlaying(false)
@@ -199,8 +201,8 @@ function Board() {
   }
 
 
-  useEffect(()=>{
-    if (isGamePlaying === false){
+  useEffect(() => {
+    if (isGamePlaying === false) {
       localStorage.removeItem("p-isGameOut")
       setIsGameOut(false)
     }
@@ -213,7 +215,7 @@ function Board() {
 
   return (
     <div className={'board-outer'}>
-      <div className={`board ${isGamePlaying ? "" : "rotated"}`} style={
+      <div data-grids={gridSize} className={`board ${isGamePlaying ? "" : "rotated"}`} style={
         {gridTemplate: `repeat(${gridSize}, ${100 / gridSize}%)/repeat(${gridSize}, ${100 / gridSize}%)`}}> {
         grid.map((row, i) => {
           return <React.Fragment key={i}> {
@@ -230,7 +232,7 @@ function Board() {
       </div>
 
       {
-        isGamePlaying?
+        isGamePlaying ?
           <>
             <div id={'score'} className={'score'}>
               <div>
@@ -247,7 +249,11 @@ function Board() {
               <div> {highScores[gridSize]} </div>
             </div>
             <button onClick={resetGame} className={'resetBtn'}> Reset</button>
-          </>:""
+          </> : <div className={'highScore'}>
+            <div>
+              Choose Level
+            </div>
+          </div>
       }
       {
         (isGameOut && !isGamePlaying) ? <Redirect to={"/gameOver"}/> : null
