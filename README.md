@@ -7,7 +7,7 @@
 | On Desktop | On Mobile |
 | --- | --- |
 | <img src="https://github.com/untitled-team-101/2048/blob/main/assets/press-right.gif" height="400" /> | <img src="https://github.com/untitled-team-101/2048/blob/main/assets/swipe-right.gif" height="500" /> |
-
+a
 <!-- ## Screenshots
 feature 1            |  feature 2
 :-------------------------:|:-------------------------:
