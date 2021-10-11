@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../style/Credits.scss";
 import ReactLogo from "../imgs/react.svg";
 
@@ -8,7 +9,7 @@ function Credits(props) {
       <div className="heading">
         <a href={"https://github.com/untitled-team-101"} target="_blank">
           Made with
-          <img className="App-logo" src={ReactLogo} alt={"logo"}/>
+          <img className="App-logo" src={ReactLogo} alt={"logo"} />
           by @untitledTeam
         </a>
       </div>
@@ -42,7 +43,9 @@ function Credits(props) {
           </li>
         </ul>
       </div>
-
+      <Link to={"/game"}>
+        <div className={"playBtn"}>Play Again!</div>
+      </Link>
     </div>
   );
 }
