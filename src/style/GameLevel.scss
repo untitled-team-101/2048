@@ -1,6 +1,7 @@
 .gameLevel {
   height: 100%;
   width: 100%;
+  pointer-events: none;
   .gameLevelBtns {
     color: #2e3440;
     display: flex;
@@ -8,7 +9,9 @@
     justify-content: center;
     font-size: 4vmin;
     height: 100%;
+    pointer-events: none;
     .level1, .level2, .level3{
+      pointer-events: all;
       background-color: transparent;
       height: 33%;
       left: 0;
@@ -28,10 +31,11 @@
     }
     .gameLevelImgs {
       height: 100%;
-
+      pointer-events: none;
       #one {
         height: 100%;
         width: 100%;
+        pointer-events: none;
       }
     }
   }
