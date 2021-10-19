@@ -49,6 +49,7 @@ button {
 
     .cell {
       border: 1px solid #717680;
+      pointer-events: none;
     }
   
     &[data-grids='3']{
