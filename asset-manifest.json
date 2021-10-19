@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "./static/css/main.0bb135ae.chunk.css",
-    "main.js": "./static/js/main.a56a6d01.chunk.js",
-    "runtime-main.js": "./static/js/runtime-main.746d78e1.js",
-    "static/js/2.1bcd20be.chunk.js": "./static/js/2.1bcd20be.chunk.js",
+    "main.css": "./static/css/main.03f7f8ff.chunk.css",
+    "main.js": "./static/js/main.f0a38e1d.chunk.js",
+    "runtime-main.js": "./static/js/runtime-main.fc36600e.js",
+    "static/js/2.39e044c5.chunk.js": "./static/js/2.39e044c5.chunk.js",
     "index.html": "./index.html",
-    "static/js/2.1bcd20be.chunk.js.LICENSE.txt": "./static/js/2.1bcd20be.chunk.js.LICENSE.txt",
+    "static/js/2.39e044c5.chunk.js.LICENSE.txt": "./static/js/2.39e044c5.chunk.js.LICENSE.txt",
     "static/media/memefrontpage.624ac3fa.png": "./static/media/memefrontpage.624ac3fa.png",
     "static/media/press-right.d58c43b7.gif": "./static/media/press-right.d58c43b7.gif",
     "static/media/react.6ce24c58.svg": "./static/media/react.6ce24c58.svg",
@@ -13,9 +13,9 @@
     "static/media/video_3.237aecb6.webm": "./static/media/video_3.237aecb6.webm"
   },
   "entrypoints": [
-    "static/js/runtime-main.746d78e1.js",
-    "static/js/2.1bcd20be.chunk.js",
-    "static/css/main.0bb135ae.chunk.css",
-    "static/js/main.a56a6d01.chunk.js"
+    "static/js/runtime-main.fc36600e.js",
+    "static/js/2.39e044c5.chunk.js",
+    "static/css/main.03f7f8ff.chunk.css",
+    "static/js/main.f0a38e1d.chunk.js"
   ]
 }
