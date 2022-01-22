@@ -24,6 +24,7 @@ feature 3             |  feature 4
 ## Contributors
 
 - [Ayan Dhara](https://github.com/Ayan-Dhara)
+- [Naman Singla](https://github.com/Naman-Singla777)
 - [Grawish Sachdeva](https://github.com/grawish)
 - [Tanmay Vaish](https://github.com/LEON6156SCOTT)
 - [Dhruv Garg](https://github.com/dhruvgarg02)
